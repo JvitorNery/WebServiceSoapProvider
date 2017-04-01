@@ -1,2 +1,2 @@
 # WebServiceSoapProvider
-WebSevice Provider Java Using JPA and maven dependecies
+WebSevice Provider Java Using JPA, Axis 2 and maven dependecies
