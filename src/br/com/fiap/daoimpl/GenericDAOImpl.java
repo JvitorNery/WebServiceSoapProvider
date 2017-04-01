@@ -10,12 +10,12 @@ public class GenericDAOImpl<T,K> implements GenericDAO<T, K>{
 	
 	private EntityManager em;
 	
-	private Class<T> classe;
+	private Class<T> clazz;
 	
 	@SuppressWarnings("unchecked")
 	public GenericDAOImpl(EntityManager em){
 		this.em = em;
-		classe = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualArguments()[0];
+		clazz = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualArguments()[0];
 	}
 	
 	@Override
