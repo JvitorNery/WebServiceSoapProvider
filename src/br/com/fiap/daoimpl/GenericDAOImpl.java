@@ -1,5 +1,7 @@
 package br.com.fiap.daoimpl;
 
+import java.lang.reflect.ParameterizedType;
+
 import javax.persistence.EntityManager;
 
 import br.com.fiap.dao.GenericDAO;
@@ -10,12 +12,13 @@ public class GenericDAOImpl<T,K> implements GenericDAO<T, K>{
 	
 	private EntityManager em;
 	
-	private Class<T> clazz;
+	private Class<T> classe;
 	
-	@SuppressWarnings("unchecked")
-	public GenericDAOImpl(EntityManager em){
+	@SuppressWarnings("all")
+	public GenericDAOImpl(EntityManager em) {		
 		this.em = em;
-		clazz = (Class<T>) ((ParameterizedType)getClass().getGenericSuperclass()).getActualArguments()[0];
+		classe = (Class<T>) ((ParameterizedType) getClass().getGenericSuperclass())
+							.getActualTypeArguments()[0];
 	}
 	
 	@Override
